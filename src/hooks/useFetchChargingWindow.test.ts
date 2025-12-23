@@ -61,7 +61,7 @@ describe("useFetchChargingWindow", () => {
       expect(result.current.error).toBeNull();
     });
 
-    expect(globalThis.fetch).toHaveBeenCalledWith("/api/charging-window?hours=3");
+    expect(globalThis.fetch).toHaveBeenCalledWith("/charging-window?hours=3");
   });
 
   it("handles fetch error", async () => {

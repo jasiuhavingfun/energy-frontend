@@ -40,7 +40,7 @@ describe("useFetchEnergyMix", () => {
       expect(result.current.error).toBeNull();
     });
 
-    expect(globalThis.fetch).toHaveBeenCalledWith("/api/energy-mix");
+    expect(globalThis.fetch).toHaveBeenCalledWith("/energy-mix");
   });
 
   it("handles fetch error", async () => {
