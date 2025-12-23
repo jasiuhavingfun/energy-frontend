@@ -1,6 +1,8 @@
 import { useState } from "react";
 import type { ChargingWindowResponse } from "../types";
 
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || '';
+
 export function useFetchChargingWindow() {
   const [result, setResult] = useState<ChargingWindowResponse | null>(null);
   const [loading, setLoading] = useState(false);
@@ -14,7 +16,7 @@ export function useFetchChargingWindow() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`/api/charging-window?hours=${hours}`);
+      const res = await fetch(`${API_BASE_URL}/charging-window?hours=${hours}`);
       if (!res.ok) throw new Error("Failed to fetch charging window");
       const json: ChargingWindowResponse = await res.json();
       setResult(json);
